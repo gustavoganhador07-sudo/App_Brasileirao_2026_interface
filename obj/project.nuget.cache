@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "p9SXi7bjA7Q=",
+  "dgSpecHash": "2I8fR657bvY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\1090812\\Desktop\\appPapelaria\\TabelaBrasileirao\\TabelaBrasileirao.csproj",
+  "projectFilePath": "C:\\Users\\1090812\\Documents\\GitHub\\App_Brasileirao_2026_interface\\TabelaBrasileirao.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1090812\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
   ],

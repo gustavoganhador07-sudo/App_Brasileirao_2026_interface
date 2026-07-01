@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace TabelaBrasileirao
 {
-   public static class ApiRotasContoller 
+   public class ConsultarSerieAModel
     {
-       private static readonly string baseUrl =
-        }
+        public int idSerieA { get; set; }
+        public string? NomeClube { get; set; }
+        public int PontosClube { get; set; }
+        public int JogosClube { get; set; }
+        public int SaldoGols { get; set; }
+        public int VitoriasClube { get; set; }
+        public int EmpateClubes { get; set; }
+        public int DerrotasClube { get; set; }
+        public int PosicaoClube { get; set; }
+    }
 }

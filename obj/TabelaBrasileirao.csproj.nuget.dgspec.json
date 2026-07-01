@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1090812\\Desktop\\appPapelaria\\TabelaBrasileirao\\TabelaBrasileirao.csproj": {}
+    "C:\\Users\\1090812\\Documents\\GitHub\\App_Brasileirao_2026_interface\\TabelaBrasileirao.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1090812\\Desktop\\appPapelaria\\TabelaBrasileirao\\TabelaBrasileirao.csproj": {
+    "C:\\Users\\1090812\\Documents\\GitHub\\App_Brasileirao_2026_interface\\TabelaBrasileirao.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1090812\\Desktop\\appPapelaria\\TabelaBrasileirao\\TabelaBrasileirao.csproj",
+        "projectUniqueName": "C:\\Users\\1090812\\Documents\\GitHub\\App_Brasileirao_2026_interface\\TabelaBrasileirao.csproj",
         "projectName": "TabelaBrasileirao",
-        "projectPath": "C:\\Users\\1090812\\Desktop\\appPapelaria\\TabelaBrasileirao\\TabelaBrasileirao.csproj",
+        "projectPath": "C:\\Users\\1090812\\Documents\\GitHub\\App_Brasileirao_2026_interface\\TabelaBrasileirao.csproj",
         "packagesPath": "C:\\Users\\1090812\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1090812\\Desktop\\appPapelaria\\TabelaBrasileirao\\obj\\",
+        "outputPath": "C:\\Users\\1090812\\Documents\\GitHub\\App_Brasileirao_2026_interface\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\1090812\\AppData\\Roaming\\NuGet\\NuGet.Config",
