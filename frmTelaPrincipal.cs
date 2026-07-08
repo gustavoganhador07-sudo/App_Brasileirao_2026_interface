@@ -16,5 +16,17 @@ namespace TabelaBrasileirao
         {
             InitializeComponent();
         }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            frmTelaConsultar consultar = new frmTelaConsultar();
+            consultar.ShowDialog();
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            Atualizartimes atualizar = new Atualizartimes();
+            atualizar.ShowDialog();
+        }
     }
 }

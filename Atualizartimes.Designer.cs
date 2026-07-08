@@ -29,59 +29,94 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            comboBox1 = new ComboBox();
-            label1 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            label11 = new Label();
             button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
+            label1 = new Label();
+            cb_Serie = new ComboBox();
             label2 = new Label();
-            textBox1 = new TextBox();
+            txtNome = new TextBox();
             label3 = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtPontosClube = new TextBox();
+            txtJogosClube = new TextBox();
             label4 = new Label();
             label5 = new Label();
-            textBox4 = new TextBox();
+            txtSaldosGols = new TextBox();
             label6 = new Label();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            label7 = new Label();
+            txtVitoriasClube = new TextBox();
             label8 = new Label();
-            textBox7 = new TextBox();
+            txtEmpateClube = new TextBox();
             label9 = new Label();
-            textBox8 = new TextBox();
+            txtDerrotasClube = new TextBox();
             label10 = new Label();
-            textBox9 = new TextBox();
-            dataGridView1 = new DataGridView();
+            txtPosiçaoClube = new TextBox();
+            dgvAtualizar = new DataGridView();
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             dataGridView2 = new DataGridView();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAtualizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.DarkBlue;
+            panel1.Controls.Add(label11);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(cb_Serie);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(147, 449);
             panel1.TabIndex = 0;
             // 
-            // comboBox1
+            // label11
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "", "SerieA", "SerieB", "SerieC", "SerieD" });
-            comboBox1.Location = new Point(12, 138);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 4;
+            label11.AutoSize = true;
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(16, 116);
+            label11.Name = "label11";
+            label11.Size = new Size(35, 15);
+            label11.TabIndex = 9;
+            label11.Text = "Serie:";
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Red;
+            button3.FlatStyle = FlatStyle.Popup;
+            button3.Location = new Point(24, 310);
+            button3.Name = "button3";
+            button3.Size = new Size(97, 36);
+            button3.TabIndex = 8;
+            button3.Text = "Apagar";
+            button3.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.DodgerBlue;
+            button2.FlatStyle = FlatStyle.Popup;
+            button2.Location = new Point(24, 248);
+            button2.Name = "button2";
+            button2.Size = new Size(97, 39);
+            button2.TabIndex = 7;
+            button2.Text = "Atualizar";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Lime;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Location = new Point(24, 187);
+            button1.Name = "button1";
+            button1.Size = new Size(97, 39);
+            button1.TabIndex = 6;
+            button1.Text = "Inserir";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
@@ -96,38 +131,15 @@
             label1.TabIndex = 5;
             label1.Text = "ATUALIZAR TIMES";
             // 
-            // button1
+            // cb_Serie
             // 
-            button1.BackColor = Color.Lime;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Location = new Point(24, 187);
-            button1.Name = "button1";
-            button1.Size = new Size(97, 39);
-            button1.TabIndex = 6;
-            button1.Text = "Inserir";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.DodgerBlue;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Location = new Point(24, 248);
-            button2.Name = "button2";
-            button2.Size = new Size(97, 39);
-            button2.TabIndex = 7;
-            button2.Text = "Atualizar";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.Red;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.Location = new Point(24, 310);
-            button3.Name = "button3";
-            button3.Size = new Size(97, 36);
-            button3.TabIndex = 8;
-            button3.Text = "Apagar";
-            button3.UseVisualStyleBackColor = false;
+            cb_Serie.FormattingEnabled = true;
+            cb_Serie.Items.AddRange(new object[] { "", "A", "B", "C", "D" });
+            cb_Serie.Location = new Point(12, 138);
+            cb_Serie.Name = "cb_Serie";
+            cb_Serie.Size = new Size(121, 23);
+            cb_Serie.TabIndex = 4;
+            cb_Serie.SelectedIndexChanged += cb_Serie_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -139,12 +151,13 @@
             label2.TabIndex = 1;
             label2.Text = "Nome Do Clube:";
             // 
-            // textBox1
+            // txtNome
             // 
-            textBox1.Location = new Point(205, 55);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(165, 23);
-            textBox1.TabIndex = 2;
+            txtNome.Location = new Point(205, 55);
+            txtNome.Name = "txtNome";
+            txtNome.Size = new Size(165, 23);
+            txtNome.TabIndex = 2;
+            txtNome.TextChanged += textBox1_TextChanged;
             // 
             // label3
             // 
@@ -156,19 +169,19 @@
             label3.TabIndex = 3;
             label3.Text = "Pontos Clube:";
             // 
-            // textBox2
+            // txtPontosClube
             // 
-            textBox2.Location = new Point(205, 120);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(165, 23);
-            textBox2.TabIndex = 4;
+            txtPontosClube.Location = new Point(205, 120);
+            txtPontosClube.Name = "txtPontosClube";
+            txtPontosClube.Size = new Size(165, 23);
+            txtPontosClube.TabIndex = 4;
             // 
-            // textBox3
+            // txtJogosClube
             // 
-            textBox3.Location = new Point(205, 187);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(165, 23);
-            textBox3.TabIndex = 5;
+            txtJogosClube.Location = new Point(205, 187);
+            txtJogosClube.Name = "txtJogosClube";
+            txtJogosClube.Size = new Size(165, 23);
+            txtJogosClube.TabIndex = 5;
             // 
             // label4
             // 
@@ -190,46 +203,29 @@
             label5.TabIndex = 7;
             label5.Text = "Saldos Gols:";
             // 
-            // textBox4
+            // txtSaldosGols
             // 
-            textBox4.Location = new Point(205, 254);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(165, 23);
-            textBox4.TabIndex = 8;
+            txtSaldosGols.Location = new Point(205, 254);
+            txtSaldosGols.Name = "txtSaldosGols";
+            txtSaldosGols.Size = new Size(165, 23);
+            txtSaldosGols.TabIndex = 8;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
-            label6.Location = new Point(212, 299);
+            label6.Location = new Point(205, 299);
             label6.Name = "label6";
             label6.Size = new Size(83, 15);
             label6.TabIndex = 9;
             label6.Text = "Vitorias Clube:";
             // 
-            // textBox5
+            // txtVitoriasClube
             // 
-            textBox5.Location = new Point(205, 318);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(165, 23);
-            textBox5.TabIndex = 10;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(205, 383);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(165, 23);
-            textBox6.TabIndex = 11;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Location = new Point(205, 365);
-            label7.Name = "label7";
-            label7.Size = new Size(83, 15);
-            label7.TabIndex = 12;
-            label7.Text = "Vitorias Clube:";
+            txtVitoriasClube.Location = new Point(205, 317);
+            txtVitoriasClube.Name = "txtVitoriasClube";
+            txtVitoriasClube.Size = new Size(165, 23);
+            txtVitoriasClube.TabIndex = 10;
             // 
             // label8
             // 
@@ -241,12 +237,12 @@
             label8.TabIndex = 13;
             label8.Text = "Empate Clube:";
             // 
-            // textBox7
+            // txtEmpateClube
             // 
-            textBox7.Location = new Point(440, 59);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(165, 23);
-            textBox7.TabIndex = 14;
+            txtEmpateClube.Location = new Point(440, 59);
+            txtEmpateClube.Name = "txtEmpateClube";
+            txtEmpateClube.Size = new Size(165, 23);
+            txtEmpateClube.TabIndex = 14;
             // 
             // label9
             // 
@@ -258,12 +254,12 @@
             label9.TabIndex = 15;
             label9.Text = "Derrotas Clube:";
             // 
-            // textBox8
+            // txtDerrotasClube
             // 
-            textBox8.Location = new Point(440, 120);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(165, 23);
-            textBox8.TabIndex = 16;
+            txtDerrotasClube.Location = new Point(440, 120);
+            txtDerrotasClube.Name = "txtDerrotasClube";
+            txtDerrotasClube.Size = new Size(165, 23);
+            txtDerrotasClube.TabIndex = 16;
             // 
             // label10
             // 
@@ -275,21 +271,21 @@
             label10.TabIndex = 17;
             label10.Text = "Posicao Clube:";
             // 
-            // textBox9
+            // txtPosiçaoClube
             // 
-            textBox9.Location = new Point(436, 187);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(165, 23);
-            textBox9.TabIndex = 18;
+            txtPosiçaoClube.Location = new Point(436, 187);
+            txtPosiçaoClube.Name = "txtPosiçaoClube";
+            txtPosiçaoClube.Size = new Size(165, 23);
+            txtPosiçaoClube.TabIndex = 18;
             // 
-            // dataGridView1
+            // dgvAtualizar
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(401, 216);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(368, 202);
-            dataGridView1.TabIndex = 19;
+            dgvAtualizar.BackgroundColor = Color.White;
+            dgvAtualizar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAtualizar.Location = new Point(401, 216);
+            dgvAtualizar.Name = "dgvAtualizar";
+            dgvAtualizar.Size = new Size(368, 202);
+            dgvAtualizar.TabIndex = 19;
             // 
             // radioButton1
             // 
@@ -334,32 +330,31 @@
             Controls.Add(dataGridView2);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
-            Controls.Add(dataGridView1);
-            Controls.Add(textBox9);
+            Controls.Add(dgvAtualizar);
+            Controls.Add(txtPosiçaoClube);
             Controls.Add(label10);
-            Controls.Add(textBox8);
+            Controls.Add(txtDerrotasClube);
             Controls.Add(label9);
-            Controls.Add(textBox7);
+            Controls.Add(txtEmpateClube);
             Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
+            Controls.Add(txtVitoriasClube);
             Controls.Add(label6);
-            Controls.Add(textBox4);
+            Controls.Add(txtSaldosGols);
             Controls.Add(label5);
             Controls.Add(label4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
+            Controls.Add(txtJogosClube);
+            Controls.Add(txtPontosClube);
             Controls.Add(label3);
-            Controls.Add(textBox1);
+            Controls.Add(txtNome);
             Controls.Add(label2);
             Controls.Add(panel1);
             DoubleBuffered = true;
             Name = "Atualizartimes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Atualizartimes";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvAtualizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -369,31 +364,31 @@
 
         private Panel panel1;
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox cb_Serie;
         private Button button3;
         private Button button2;
         private Button button1;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox txtNome;
         private Label label3;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox txtPontosClube;
+        private TextBox txtJogosClube;
         private Label label4;
         private Label label5;
         private TextBox textBox4;
         private Label label6;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private Label label7;
+        private TextBox txtVitoriasClube;
         private Label label8;
-        private TextBox textBox7;
+        private TextBox txtEmpateClube;
         private Label label9;
-        private TextBox textBox8;
+        private TextBox txtDerrotasClube;
         private Label label10;
-        private TextBox textBox9;
-        private DataGridView dataGridView1;
+        private TextBox txtPosiçaoClube;
+        private DataGridView dgvAtualizar;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private DataGridView dataGridView2;
+        private Label label11;
+        private TextBox txtSaldosGols;
     }
 }

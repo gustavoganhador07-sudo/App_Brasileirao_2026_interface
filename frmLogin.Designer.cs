@@ -28,34 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
+            btnEntrar = new Button();
+            btnSair = new Button();
             label1 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // btnEntrar
             // 
-            button1.BackColor = Color.Lime;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(107, 392);
-            button1.Name = "button1";
-            button1.Size = new Size(92, 30);
-            button1.TabIndex = 0;
-            button1.Text = "ENTRAR";
-            button1.UseVisualStyleBackColor = false;
+            btnEntrar.BackColor = Color.Lime;
+            btnEntrar.FlatStyle = FlatStyle.Popup;
+            btnEntrar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEntrar.Location = new Point(107, 392);
+            btnEntrar.Name = "btnEntrar";
+            btnEntrar.Size = new Size(92, 30);
+            btnEntrar.TabIndex = 0;
+            btnEntrar.Text = "ENTRAR";
+            btnEntrar.UseVisualStyleBackColor = false;
+            btnEntrar.Click += btnEntrar_Click;
             // 
-            // button2
+            // btnSair
             // 
-            button2.BackColor = Color.Red;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(12, 392);
-            button2.Name = "button2";
-            button2.Size = new Size(89, 30);
-            button2.TabIndex = 1;
-            button2.Text = "SAIR";
-            button2.UseVisualStyleBackColor = false;
+            btnSair.BackColor = Color.Red;
+            btnSair.FlatStyle = FlatStyle.Popup;
+            btnSair.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnSair.Location = new Point(12, 392);
+            btnSair.Name = "btnSair";
+            btnSair.Size = new Size(89, 30);
+            btnSair.TabIndex = 1;
+            btnSair.Text = "SAIR";
+            btnSair.UseVisualStyleBackColor = false;
+            btnSair.Click += btnSair_Click;
             // 
             // label1
             // 
@@ -69,7 +71,7 @@
             label1.TabIndex = 2;
             label1.Text = "Sistema de controle de times";
             // 
-            // Form1
+            // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -77,9 +79,11 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Name = "Form1";
+            Controls.Add(btnSair);
+            Controls.Add(btnEntrar);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "frmLogin";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tela Login";
             ResumeLayout(false);
             PerformLayout();
@@ -87,8 +91,8 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button btnEntrar;
+        private Button btnSair;
         private Label label1;
     }
 }

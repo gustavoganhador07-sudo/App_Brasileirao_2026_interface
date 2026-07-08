@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TabelaBrasileirao
 {
-    internal class ConsulatrSerieDModel
+    internal class ConsultarSerieDModel
     {
         public int idSerieD { get; set; }
         public string? NomeClube { get; set; }

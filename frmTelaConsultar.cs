@@ -12,30 +12,30 @@ using System.Windows.Forms;
 
 namespace TabelaBrasileirao
 {
-    public partial class Atualizartimes : Form
+    public partial class frmTelaConsultar : Form
     {
-        public Atualizartimes()
+        public frmTelaConsultar()
         {
             InitializeComponent();
         }
 
-        private async void cb_Serie_SelectedIndexChanged(object sender, EventArgs e)
+        private async void btnConsultar_Click(object sender, EventArgs e)
         {
-            string serie = cb_Serie.Text;
+            string serie = cbSeries.Text;
 
             switch (serie)
             {
                 case "A":
-                    await ConsultarSerieA();
+                    await SerieA();
                     break;
                 case "B":
-                    await ConsultarSerieB();
+                    await SerieB();
                     break;
                 case "C":
-                    await ConsultarSerieC();
+                    await SerieC();
                     break;
                 case "D":
-                    await ConsultarSerieD();
+                    await SerieD();
                     break;
                 default:
                     MessageBox.Show("Selecione a série.");
@@ -43,7 +43,97 @@ namespace TabelaBrasileirao
             }
         }
 
-        private async Task ConsultarSerieA()
+        private async Task SerieD()
+        {
+            string apiUrl = ApiRotasController.ConsultarSerieD;
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var dados = JsonConvert.DeserializeObject<List<ConsultarSerieDModel>>(jsonString);
+
+                        dgvConsultar.DataSource = dados;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao buscar dados da API: " + response.StatusCode);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
+                }
+            }
+        }
+
+        private async Task SerieC()
+        {
+            string apiUrl = ApiRotasController.ConsultarSerieC;
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var dados = JsonConvert.DeserializeObject<List<ConsultarSerieCModel>>(jsonString);
+
+                        dgvConsultar.DataSource = dados;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao buscar dados da API: " + response.StatusCode);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
+                }
+            }
+        }
+
+        private async Task SerieB()
+        {
+            string apiUrl = ApiRotasController.ConsultarSerieB;
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    HttpResponseMessage response = await client.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var jsonString = await response.Content.ReadAsStringAsync();
+                        var dados = JsonConvert.DeserializeObject<List<ConsultarSerieBModel>>(jsonString);
+
+                        dgvConsultar.DataSource = dados;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao buscar dados da API: " + response.StatusCode);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
+                }
+            }
+        }
+
+        private async Task SerieA()
         {
             string apiUrl = ApiRotasController.ConsultarSerieA;
 
@@ -59,7 +149,7 @@ namespace TabelaBrasileirao
                         var jsonString = await response.Content.ReadAsStringAsync();
                         var dados = JsonConvert.DeserializeObject<List<ConsultarSerieAModel>>(jsonString);
 
-                        dgvAtualizar.DataSource = dados;
+                        dgvConsultar.DataSource = dados;
                     }
                     else
                     {
@@ -73,151 +163,9 @@ namespace TabelaBrasileirao
             }
         }
 
-        private async Task ConsultarSerieB()
-        {
-            string apiUrl = ApiRotasController.ConsultarSerieB;
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage response = await client.GetAsync(apiUrl);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var dados = JsonConvert.DeserializeObject<List<ConsultarSerieBModel>>(jsonString);
-                        dgvAtualizar.DataSource = dados;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao buscar dados da API: " + response.StatusCode);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
-                }
-            }
-
-        }
-
-        private async Task ConsultarSerieC()
-        {
-            string apiUrl = ApiRotasController.ConsultarSerieC;
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage response = await client.GetAsync(apiUrl);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var dados = JsonConvert.DeserializeObject<List<ConsultarSerieCModel>>(jsonString);
-                        dgvAtualizar.DataSource = dados;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao buscar dados da API: " + response.StatusCode);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
-                }
-            }
-        }
-
-        private async Task ConsultarSerieD()
-        {
-            string apiUrl = ApiRotasController.ConsultarSerieD;
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage response = await client.GetAsync(apiUrl);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        var dados = JsonConvert.DeserializeObject<List<ConsultarSerieDModel>>(jsonString);
-                        dgvAtualizar.DataSource = dados;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao buscar dados da API: " + response.StatusCode);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
-                }
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string apiUrl = "http://127.0.0.1:5000";
-
-            switch (cb_Serie.Text)
-            {
-                case "A":
-                    apiUrl = ApiRotasController.InserirSerieA;
-                    break;
-                case "B":
-                    apiUrl = ApiRotasController.InserirSerieB;
-                    break;
-                case "C":
-                    apiUrl = ApiRotasController.InserirSerieC;
-                    break;
-                case "D":
-                    apiUrl = ApiRotasController.InserirSerieD;
-                    break;
-                default:
-                    MessageBox.Show("Selecione a série.");
-                    return;
-            }
-
-            var dados = new
-            {
-                NomeClube = txtNome.Text,
-                PontosClube = txtPontosClube.Text,
-                JogosClube = txtJogosClube.Text,
-                SaldosGols = txtSaldosGols.Text,
-                VitoriasClube = int.Parse(txtVitoriasClube.Text),
-                EmpateClube = int.Parse(txtEmpateClube.Text),
-                DerrotasClube = int.Parse(txtDerrotasClube.Text),
-                PosicaoClube = int.Parse(txtPosiçaoClube.Text),
-
-            };
-
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
-                    var jsonContent = JsonConvert.SerializeObject(dados);
-                    var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                    HttpResponseMessage response = client.PostAsync(apiUrl, content).Result;
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show("Dados inseridos com sucesso!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Erro ao inserir dados na API: " + response.StatusCode);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
-                }
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void cbSeries_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
     }
 }
-

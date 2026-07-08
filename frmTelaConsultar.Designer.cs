@@ -1,6 +1,6 @@
 ﻿namespace TabelaBrasileirao
 {
-    partial class frmTelaconsulatar
+    partial class frmTelaConsultar
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,10 @@
         {
             label1 = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
+            cbSeries = new ComboBox();
             btnConsultar = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgvConsultar = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dgvConsultar).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -59,14 +59,15 @@
             label2.TabIndex = 2;
             label2.Text = "Serie:";
             // 
-            // comboBox1
+            // cbSeries
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "", "SerieA", "SerieB", "SerieC", "SerieD" });
-            comboBox1.Location = new Point(627, 164);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 3;
+            cbSeries.FormattingEnabled = true;
+            cbSeries.Items.AddRange(new object[] { "", "A", "B", "C", "D" });
+            cbSeries.Location = new Point(627, 164);
+            cbSeries.Name = "cbSeries";
+            cbSeries.Size = new Size(121, 23);
+            cbSeries.TabIndex = 3;
+            cbSeries.SelectedIndexChanged += cbSeries_SelectedIndexChanged;
             // 
             // btnConsultar
             // 
@@ -80,30 +81,31 @@
             btnConsultar.UseVisualStyleBackColor = false;
             btnConsultar.Click += btnConsultar_Click;
             // 
-            // dataGridView1
+            // dgvConsultar
             // 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(286, 131);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(292, 169);
-            dataGridView1.TabIndex = 5;
+            dgvConsultar.BackgroundColor = Color.White;
+            dgvConsultar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvConsultar.Location = new Point(286, 131);
+            dgvConsultar.Name = "dgvConsultar";
+            dgvConsultar.Size = new Size(292, 169);
+            dgvConsultar.TabIndex = 5;
             // 
-            // frmTelaconsulatar
+            // frmTelaConsultar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.imagem_da_tela_de_consulta;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvConsultar);
             Controls.Add(btnConsultar);
-            Controls.Add(comboBox1);
+            Controls.Add(cbSeries);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "frmTelaconsulatar";
+            Name = "frmTelaConsultar";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmTelaconsulatar";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvConsultar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -112,8 +114,8 @@
 
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
+        private ComboBox cbSeries;
         private Button btnConsultar;
-        private DataGridView dataGridView1;
+        private DataGridView dgvConsultar;
     }
 }

@@ -29,34 +29,36 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTelaPrincipal));
-            button1 = new Button();
-            button2 = new Button();
+            btnConsultar = new Button();
+            btnAtualizar = new Button();
             label1 = new Label();
             SuspendLayout();
             // 
-            // button1
+            // btnConsultar
             // 
-            button1.BackColor = Color.DeepSkyBlue;
-            button1.FlatStyle = FlatStyle.Popup;
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(67, 203);
-            button1.Name = "button1";
-            button1.Size = new Size(132, 30);
-            button1.TabIndex = 0;
-            button1.Text = "Consultar";
-            button1.UseVisualStyleBackColor = false;
+            btnConsultar.BackColor = Color.DeepSkyBlue;
+            btnConsultar.FlatStyle = FlatStyle.Popup;
+            btnConsultar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnConsultar.Location = new Point(67, 203);
+            btnConsultar.Name = "btnConsultar";
+            btnConsultar.Size = new Size(132, 30);
+            btnConsultar.TabIndex = 0;
+            btnConsultar.Text = "Consultar";
+            btnConsultar.UseVisualStyleBackColor = false;
+            btnConsultar.Click += btnConsultar_Click;
             // 
-            // button2
+            // btnAtualizar
             // 
-            button2.BackColor = Color.DeepSkyBlue;
-            button2.FlatStyle = FlatStyle.Popup;
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(67, 264);
-            button2.Name = "button2";
-            button2.Size = new Size(132, 30);
-            button2.TabIndex = 1;
-            button2.Text = "Atualizar";
-            button2.UseVisualStyleBackColor = false;
+            btnAtualizar.BackColor = Color.DeepSkyBlue;
+            btnAtualizar.FlatStyle = FlatStyle.Popup;
+            btnAtualizar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAtualizar.Location = new Point(67, 264);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(132, 30);
+            btnAtualizar.TabIndex = 1;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = false;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // label1
             // 
@@ -77,9 +79,10 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnAtualizar);
+            Controls.Add(btnConsultar);
             Name = "frmTelaPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "frmTelaPrincipal";
             ResumeLayout(false);
             PerformLayout();
@@ -87,8 +90,8 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
+        private Button btnConsultar;
+        private Button btnAtualizar;
         private Label label1;
     }
 }
