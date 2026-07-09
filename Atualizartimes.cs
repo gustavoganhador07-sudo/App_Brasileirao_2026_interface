@@ -218,6 +218,129 @@ namespace TabelaBrasileirao
         {
 
         }
+
+        private int? _idSelecionado = null;
+        private void dgvAtualizar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            DataGridViewRow linha = dgvAtualizar.Rows[e.RowIndex];
+
+            string serie = cb_Serie.Text;
+
+            switch (serie)
+            {
+                case "A":
+                    _idSelecionado = (int)linha.Cells["idSerieA"].Value;
+                    break;
+                case "B":
+                    _idSelecionado = (int)linha.Cells["idSerieB"].Value;
+                    break;
+                case "C":
+                    _idSelecionado = (int)linha.Cells["idSerieC"].Value;
+                    break;
+                case "D":
+                    _idSelecionado = (int)linha.Cells["idSerieD"].Value;
+                    break;
+                default:
+                    MessageBox.Show("Selecione a série.");
+                    break;
+            }
+
+            txtNome.Text = linha.Cells["NomeClube"].Value?.ToString();
+            txtPontosClube.Text = linha.Cells["PontosClube"].Value?.ToString();
+            txtJogosClube.Text = linha.Cells["JogosClube"].Value?.ToString();
+            txtSaldosGols.Text = linha.Cells["SaldosGols"].Value?.ToString();
+            txtVitoriasClube.Text = linha.Cells["VitoriasClube"].Value?.ToString();
+            txtEmpateClube.Text = linha.Cells["EmpateClube"].Value?.ToString();
+            txtDerrotasClube.Text = linha.Cells["DerrotasClube"].Value?.ToString();
+            txtPosiçaoClube.Text = linha.Cells["PosicaoClube"].Value?.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string apiUrl = "";
+
+            switch (cb_Serie.Text)
+            {
+                case "A":
+                    apiUrl = ApiRotasController.DeletarSerieA;
+                    break;
+                case "B":
+                    apiUrl = ApiRotasController.DeletarSerieB;
+                    break;
+                case "C":
+                    apiUrl = ApiRotasController.DeletarSerieC;
+                    break;
+                case "D":
+                    apiUrl = ApiRotasController.DeletarSerieD;
+                    break;
+                default:
+                    MessageBox.Show("Selecione a série.");
+                    return;
+            }
+
+            // Verifica se algum registro foi selecionado
+            if (_idSelecionado == null)
+            {
+                MessageBox.Show("Selecione um registro na tabela para excluir.");
+                return;
+            }
+
+            // Confirma a exclusão
+            DialogResult resposta = MessageBox.Show(
+                "Deseja realmente excluir este registro?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resposta == DialogResult.No)
+                return;
+
+            // Monta a URL com o ID
+            apiUrl = $"{apiUrl}/{_idSelecionado.Value}";
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    HttpResponseMessage response = client.DeleteAsync(apiUrl).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Registro excluído com sucesso!");
+
+                        // Limpa a seleção
+                        _idSelecionado = null;
+
+                        txtNome.Clear();
+                        txtPontosClube.Clear();
+                        txtJogosClube.Clear();
+                        txtSaldosGols.Clear();
+                        txtVitoriasClube.Clear();
+                        txtEmpateClube.Clear();
+                        txtDerrotasClube.Clear();
+                        txtPosiçaoClube.Clear();
+
+                        // Atualize o DataGridView aqui, se você possuir um método para isso.
+                        // Exemplo:
+                        // CarregarDados();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao excluir: " + response.StatusCode);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

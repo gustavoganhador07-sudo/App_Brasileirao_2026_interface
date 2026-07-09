@@ -54,10 +54,9 @@
             dgvAtualizar = new DataGridView();
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
-            dataGridView2 = new DataGridView();
+            textBox1 = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAtualizar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -94,6 +93,7 @@
             button3.TabIndex = 8;
             button3.Text = "Apagar";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -105,6 +105,7 @@
             button2.TabIndex = 7;
             button2.Text = "Atualizar";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -286,6 +287,7 @@
             dgvAtualizar.Name = "dgvAtualizar";
             dgvAtualizar.Size = new Size(368, 202);
             dgvAtualizar.TabIndex = 19;
+            dgvAtualizar.CellClick += dgvAtualizar_CellClick;
             // 
             // radioButton1
             // 
@@ -311,14 +313,12 @@
             radioButton2.Text = "Posiçao";
             radioButton2.UseVisualStyleBackColor = false;
             // 
-            // dataGridView2
+            // textBox1
             // 
-            dataGridView2.BackgroundColor = Color.White;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(615, 428);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.Size = new Size(154, 19);
-            dataGridView2.TabIndex = 22;
+            textBox1.Location = new Point(620, 424);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(149, 23);
+            textBox1.TabIndex = 22;
             // 
             // Atualizartimes
             // 
@@ -327,7 +327,7 @@
             BackgroundImage = Properties.Resources.cbf;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(800, 450);
-            Controls.Add(dataGridView2);
+            Controls.Add(textBox1);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(dgvAtualizar);
@@ -355,7 +355,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAtualizar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -387,8 +386,8 @@
         private DataGridView dgvAtualizar;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
-        private DataGridView dataGridView2;
         private Label label11;
         private TextBox txtSaldosGols;
+        private TextBox textBox1;
     }
 }

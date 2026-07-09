@@ -1,9 +1,3 @@
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\bin\Debug\net9.0-windows\TabelaBrasileirao.exe
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\bin\Debug\net9.0-windows\TabelaBrasileirao.deps.json
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\bin\Debug\net9.0-windows\TabelaBrasileirao.runtimeconfig.json
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\bin\Debug\net9.0-windows\TabelaBrasileirao.dll
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\bin\Debug\net9.0-windows\TabelaBrasileirao.pdb
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
 C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.csproj.AssemblyReference.cache
 C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.Atualizartimes.resources
 C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.frmLogin.resources
@@ -16,9 +10,3 @@ C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.
 C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.AssemblyInfo.cs
 C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.csproj.CoreCompileInputs.cache
 C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.sourcelink.json
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBr.9F44E493.Up2Date
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.dll
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\refint\TabelaBrasileirao.dll
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.pdb
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\TabelaBrasileirao.genruntimeconfig.cache
-C:\Users\1090812\Documents\GitHub\App_Brasileirao_2026_interface\obj\Debug\net9.0-windows\ref\TabelaBrasileirao.dll

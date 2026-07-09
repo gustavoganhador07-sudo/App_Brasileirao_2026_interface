@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TabelaBrasileirao")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13629c888256b3e16be47bab8e210e2d1133e04e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f407d1423be4c9a52ec7754d466d1c4205a8b6b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TabelaBrasileirao")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TabelaBrasileirao")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -14,7 +14,7 @@ namespace TabelaBrasileirao
         public int JogosClube { get; set; }
         public int SaldosGols { get; set; }
         public int VitoriasClube { get; set; }
-        public int EmpateClubes { get; set; }
+        public int EmpateClube { get; set; }
         public int DerrotasClube { get; set; }
         public int PosicaoClube { get; set; }
     }

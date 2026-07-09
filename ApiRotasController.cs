@@ -20,5 +20,16 @@ namespace TabelaBrasileirao
         public static string InserirSerieC => $"{baseUrl}/SerieC";
         public static string InserirSerieD => $"{baseUrl}/SerieD";
 
+        public static string DeletarSerieA => $"{baseUrl}/SerieA";
+        public static string DeletarSerieB => $"{baseUrl}/SerieB";
+        public static string DeletarSerieC => $"{baseUrl}/SerieC";
+        public static string DeletarSerieD => $"{baseUrl}/SerieD";
+
+        public static string AtualizarSerieA => $"{baseUrl}/SerieA";
+        public static string AtualizarSerieB => $"{baseUrl}/SerieB";
+        public static string AtualizarSerieC => $"{baseUrl}/SerieC";
+        public static string AtualizarSerieD => $"{baseUrl}/SerieD";
+
+
     }
 }
