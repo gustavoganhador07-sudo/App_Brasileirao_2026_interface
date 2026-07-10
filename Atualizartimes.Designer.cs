@@ -52,9 +52,9 @@
             label10 = new Label();
             txtPosiçaoClube = new TextBox();
             dgvAtualizar = new DataGridView();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            textBox1 = new TextBox();
+            rbNomeTime = new RadioButton();
+            rbPosicao = new RadioButton();
+            txtBuscar = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAtualizar).BeginInit();
             SuspendLayout();
@@ -289,36 +289,37 @@
             dgvAtualizar.TabIndex = 19;
             dgvAtualizar.CellClick += dgvAtualizar_CellClick;
             // 
-            // radioButton1
+            // rbNomeTime
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.BackColor = Color.Transparent;
-            radioButton1.Location = new Point(414, 428);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(91, 19);
-            radioButton1.TabIndex = 20;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Nome Time ";
-            radioButton1.UseVisualStyleBackColor = false;
+            rbNomeTime.AutoSize = true;
+            rbNomeTime.BackColor = Color.Transparent;
+            rbNomeTime.Location = new Point(414, 428);
+            rbNomeTime.Name = "rbNomeTime";
+            rbNomeTime.Size = new Size(91, 19);
+            rbNomeTime.TabIndex = 20;
+            rbNomeTime.TabStop = true;
+            rbNomeTime.Text = "Nome Time ";
+            rbNomeTime.UseVisualStyleBackColor = false;
             // 
-            // radioButton2
+            // rbPosicao
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.BackColor = Color.Transparent;
-            radioButton2.Location = new Point(528, 428);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(66, 19);
-            radioButton2.TabIndex = 21;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Posiçao";
-            radioButton2.UseVisualStyleBackColor = false;
+            rbPosicao.AutoSize = true;
+            rbPosicao.BackColor = Color.Transparent;
+            rbPosicao.Location = new Point(528, 428);
+            rbPosicao.Name = "rbPosicao";
+            rbPosicao.Size = new Size(66, 19);
+            rbPosicao.TabIndex = 21;
+            rbPosicao.TabStop = true;
+            rbPosicao.Text = "Posiçao";
+            rbPosicao.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtBuscar
             // 
-            textBox1.Location = new Point(620, 424);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(149, 23);
-            textBox1.TabIndex = 22;
+            txtBuscar.Location = new Point(620, 424);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(149, 23);
+            txtBuscar.TabIndex = 22;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
             // Atualizartimes
             // 
@@ -327,9 +328,9 @@
             BackgroundImage = Properties.Resources.cbf;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(800, 450);
-            Controls.Add(textBox1);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
+            Controls.Add(txtBuscar);
+            Controls.Add(rbPosicao);
+            Controls.Add(rbNomeTime);
             Controls.Add(dgvAtualizar);
             Controls.Add(txtPosiçaoClube);
             Controls.Add(label10);
@@ -384,10 +385,10 @@
         private Label label10;
         private TextBox txtPosiçaoClube;
         private DataGridView dgvAtualizar;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
+        private RadioButton rbNomeTime;
+        private RadioButton rbPosicao;
         private Label label11;
         private TextBox txtSaldosGols;
-        private TextBox textBox1;
+        private TextBox txtBuscar;
     }
 }

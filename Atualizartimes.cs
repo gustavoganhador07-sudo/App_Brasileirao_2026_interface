@@ -339,7 +339,136 @@ namespace TabelaBrasileirao
 
         private void button2_Click(object sender, EventArgs e)
         {
+            string apiUrl = "";
 
+            switch (cb_Serie.Text)
+            {
+                case "A":
+                    apiUrl = ApiRotasController.AtualizarSerieA;
+                    break;
+                case "B":
+                    apiUrl = ApiRotasController.AtualizarSerieB;
+                    break;
+                case "C":
+                    apiUrl = ApiRotasController.AtualizarSerieC;
+                    break;
+                case "D":
+                    apiUrl = ApiRotasController.AtualizarSerieD;
+                    break;
+                default:
+                    MessageBox.Show("Selecione a série.");
+                    return;
+            }
+
+            // Verifica se um registro foi selecionado
+            if (_idSelecionado == null)
+            {
+                MessageBox.Show("Selecione um registro na tabela para atualizar.");
+                return;
+            }
+
+            // Dados que serão atualizados
+            var dados = new
+            {
+                NomeClube = txtNome.Text,
+                PontosClube = int.Parse(txtPontosClube.Text),
+                JogosClube = int.Parse(txtJogosClube.Text),
+                SaldosGols = int.Parse(txtSaldosGols.Text),
+                VitoriasClube = int.Parse(txtVitoriasClube.Text),
+                EmpateClube = int.Parse(txtEmpateClube.Text),
+                DerrotasClube = int.Parse(txtDerrotasClube.Text),
+                PosicaoClube = int.Parse(txtPosiçaoClube.Text)
+            };
+
+            // Confirma a atualização
+            DialogResult resposta = MessageBox.Show(
+                "Deseja realmente atualizar este registro?",
+                "Confirmação",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (resposta == DialogResult.No)
+                return;
+
+            // Adiciona o ID à URL
+            apiUrl = $"{apiUrl}/{_idSelecionado.Value}";
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    string json = JsonConvert.SerializeObject(dados);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response = client.PutAsync(apiUrl, content).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Registro atualizado com sucesso!");
+
+                        _idSelecionado = null;
+
+                        txtNome.Clear();
+                        txtPontosClube.Clear();
+                        txtJogosClube.Clear();
+                        txtSaldosGols.Clear();
+                        txtVitoriasClube.Clear();
+                        txtEmpateClube.Clear();
+                        txtDerrotasClube.Clear();
+                        txtPosiçaoClube.Clear();
+
+                        // Atualizar o DataGridView
+                        // Exemplo:
+                        // CarregarDados();
+                    }
+                    else
+                    {
+                        string erro = response.Content.ReadAsStringAsync().Result;
+
+                        MessageBox.Show(
+                            $"Erro ao atualizar.\n\nStatus: {response.StatusCode}\n\n{erro}"
+                        );
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro ao conectar à API: " + ex.Message);
+                }
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (dgvAtualizar.DataSource == null)
+                return;
+
+            CurrencyManager cm = (CurrencyManager)BindingContext[dgvAtualizar.DataSource];
+            cm.SuspendBinding();
+
+            string texto = txtBuscar.Text.Trim().ToLower();
+
+            foreach (DataGridViewRow linha in dgvAtualizar.Rows)
+            {
+                if (linha.IsNewRow)
+                    continue;
+
+                bool mostrar = false;
+
+                if (rbNomeTime.Checked)
+                {
+                    string nome = linha.Cells["NomeClube"].Value?.ToString().ToLower() ?? "";
+                    mostrar = nome.Contains(texto);
+                }
+                else if (rbPosicao.Checked)
+                {
+                    string posicao = linha.Cells["PosicaoClube"].Value?.ToString() ?? "";
+                    mostrar = posicao.Contains(texto);
+                }
+
+                linha.Visible = mostrar;
+            }
+
+            cm.ResumeBinding();
         }
     }
 }
